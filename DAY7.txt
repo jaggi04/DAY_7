@@ -1,0 +1,48 @@
+=======================================================================================================                             
+				DAY7
+==============================================================================================================
+1.Get all the countries from the Asia continent /region using the Filter function
+
+fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(countries => {
+    const Regionsinasia = countries.filter(country => country.region === "Asia");
+    console.log(Regionsinasia);
+  });
+
+==================================================================================================================
+2.Get all the countries with a population of less than 2 lakhs using Filter function
+
+
+
+fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(countries => {
+    const lessthan = countries.filter(country => country.population < 200000);
+    console.log(lessthan);
+  });
+
+===============================================================================================================
+3. Print the following details name, capital, flag using forEach function
+fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(countries => {
+    countries.forEach(country => {
+      console.log(`Name: ${country.name}`);
+      console.log(`Capital: ${country.capital}`);
+      console.log(`Flag: ${country.flag}`);
+    });
+  });
+=============================================================================================
+4.Print the total population of countries using reduce function
+
+
+fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(countries => {
+    const Total = countries.reduce((sum, country) => sum + country.population, 0);
+    console.log(`Total Population: ${Total}`);
+  });
+
+===================================================================================================================
+5.Print the country which uses US Dollars as curren
